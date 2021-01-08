@@ -6,6 +6,7 @@ var docxConverter = require('docx-pdf');
 const hbs = require("hbs");
 var nodemailer = require('nodemailer');
 
+const PORT = process.env.PORT || 3000;
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
@@ -118,4 +119,4 @@ app.get('/thankyou',(req,res) => {
   res.sendFile(__dirname+'/thankyou.html')
 })
 
-app.listen(3000);
+app.listen(PORT);
