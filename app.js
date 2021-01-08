@@ -39,7 +39,7 @@ app.post('/upload', function(req, res) {
     var file = req.files.upfile;
     
     name = file.name;
-
+    name = name.replace(/ /g,'');
     type = file.mimetype;
    
     var uploadpath = __dirname + "/uploads/" + name;
