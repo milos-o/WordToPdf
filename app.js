@@ -41,7 +41,7 @@ app.post('/upload', function(req, res) {
     name = file.name;
     name = name.replace(/ /g,'');
     type = file.mimetype;
-   if(type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+   if(type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' && type != 'application/msword'){
      return res.render('warning.hbs');
    }
 
@@ -70,7 +70,7 @@ app.post('/upload', function(req, res) {
           var mailOptions = {
                  from: 'milos.osto11@gmail.com',
                  to: req.body.email,
-               subject: 'Sending Email using Node.js',
+               subject: 'Here is the file you converted.',
                 attachments: [
                      {
                        path: uploadPath
