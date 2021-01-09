@@ -41,7 +41,10 @@ app.post('/upload', function(req, res) {
     name = file.name;
     name = name.replace(/ /g,'');
     type = file.mimetype;
-   
+   if(type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+     return res.render('warning.hbs');
+   }
+
     var uploadpath = __dirname + "/uploads/" + name;
 
     const First_name = name.split('.')[0];
